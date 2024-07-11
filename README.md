@@ -1,17 +1,16 @@
 # trading-webserver-python
 
 **Description**: Setup a web server with the following functionalities
-
 Place an order on an exchange for a given market (which is marked as executed after 60 seconds of delay)
 Cancel a given order 
 Fetch balance
 - both across exchanges and a specific exchange
 - both across tokens and a specific token
 Withdraw specific token balance (eg: ETH) to any one of the whitelisted address set
-
 Also, simulate random failures for each of these endpoints with proper feedback to the API consumer.
 
-Note: Use dummy datasets (either in-memory/sqlite) to power the responses
+**Note**: Use dummy datasets (either in-memory/sqlite) to power the responses
+
 
 **Test Suite**:
 1. Fetch balance for INR
@@ -51,7 +50,7 @@ Note: Use dummy datasets (either in-memory/sqlite) to power the responses
 
 **Endpoint Results**:
 
-1. Order Curl:
+1. **Order Curl**:
 
 	curl --location 'https://8000-gitpodio-empty-18m1e98ma7u.ws-us115.gitpod.io/api/v0/order/' \
 	--header 'Content-Type: application/json' \
@@ -62,14 +61,14 @@ Note: Use dummy datasets (either in-memory/sqlite) to power the responses
 	    "order_quantity": 0.5
 	}'
 
-	Response: 
+	**Response**: 
 	
 	{
 	    "Message": "Order Placed Successfully, Reference_ID = 635867"
 	}
 
 
-2. Balance Curl:
+2. **Balance Curl**:
 
 	curl --location 'https://8000-gitpodio-empty-18m1e98ma7u.ws-us115.gitpod.io/api/v0/balance/' \
 	--header 'Content-Type: application/json' \
@@ -78,7 +77,7 @@ Note: Use dummy datasets (either in-memory/sqlite) to power the responses
 	"asset_name" : ["BITCOIN"]
 	}'
 
-	Response: 
+	**Response**: 
 	
 	{
 	    "Balance(s)": {
@@ -89,7 +88,7 @@ Note: Use dummy datasets (either in-memory/sqlite) to power the responses
 	}
 
 
-3. Cancel Curl:
+3. **Cancel Curl**:
 
 	curl --location 'https://8000-gitpodio-empty-18m1e98ma7u.ws-us115.gitpod.io/api/v0/cancel/' \
 	--header 'Content-Type: application/json' \
@@ -99,14 +98,14 @@ Note: Use dummy datasets (either in-memory/sqlite) to power the responses
 	    "order_id": 761230
 	}'
 	
-	Response:
+	**Response**:
 	
 	{
 	    "Message": "Order Cancelled Successfully"
 	}
 
 
-4. Withdraw Curl:
+4. **Withdraw Curl**:
 
 	curl --location 'https://8000-gitpodio-empty-18m1e98ma7u.ws-us115.gitpod.io/api/v0/withdraw/' \
 	--header 'Content-Type: application/json' \
@@ -117,7 +116,7 @@ Note: Use dummy datasets (either in-memory/sqlite) to power the responses
 	    "address": "A"
 	}'
 	
-	Response:
+	**Response**:
 	
 	{
 	    "Message": "Withdraw Successfully Done"
